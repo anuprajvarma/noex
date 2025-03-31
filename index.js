@@ -1,9 +1,15 @@
-const http = require("http");
+const express = require("express");
 
-const myServer = http.createServer((req, res) => {
-  res.end("hellow ji");
+const app = express();
+
+app.get("/", (req, res) => {
+  return res.end("home page");
 });
 
-myServer.listen(8000, () => {
+app.get("/about", (req, res) => {
+  return res.end("about page");
+});
+
+app.listen(8000, () => {
   console.log("server is started");
 });
