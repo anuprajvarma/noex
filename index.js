@@ -2,7 +2,7 @@ const express = require("express");
 
 const app = express();
 
-app.use(express.json()); // it is a middleware,that parses incoming JSON requests and makes the JSON data available in req.body.
+app.use(express.json()); // it is a middleware who put incoming data in body.
 
 app.get("/", (req, res) => {
   return res.end("home page");
