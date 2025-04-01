@@ -7,7 +7,7 @@ app.use(express.json()); // it is a middleware who put incoming data in body.
 app.use((req, res, next) => {
   console.log("middlware");
   next();
-});
+}); // costom middleware
 
 app.get("/", (req, res) => {
   return res.end("home page");
