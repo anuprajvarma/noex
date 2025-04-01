@@ -1,4 +1,6 @@
 const express = require("express");
+const mongoose = require("mongoose");
+const { type } = require("os");
 
 const app = express();
 
@@ -8,6 +10,20 @@ app.use((req, res, next) => {
   console.log("middlware");
   next();
 }); // costom middleware
+
+// connect mongodb database
+mongoose.connect(
+  "mongodb+srv://AnuprajVarma:<db_password>@cluster0.jkktf.mongodb.net/"
+);
+
+//schema
+const userSchema = new mongoose.Schema({
+  name: { type: String },
+  email: { type: String, require: true, unique: true },
+  password: { type: String, require: true },
+});
+// Model
+const user = mongoose.model("user", userSchema);
 
 app.get("/", (req, res) => {
   return res.end("home page");
