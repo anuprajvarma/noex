@@ -1,5 +1,5 @@
 const handleuser = (req, res) => {
-  return res.send("home page");
+  return res.render("home");
 };
 
 const getuser = (req, res) => {

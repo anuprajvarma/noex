@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 const userRoute = require("./routes/user");
 const logReqRes = require("./middleware");
 
@@ -9,6 +10,11 @@ const app = express();
 // mongoose.connect(
 //   "mongodb+srv://AnuprajVarma:<db_password>@cluster0.jkktf.mongodb.net/"
 // );
+
+// tell the express which view engine i'm using
+app.set("view engine", "ejs");
+
+app.set("views", path.resolve("./views"));
 
 app.use(express.json()); // it is a middleware who put incoming data in body.
 
